@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <!-- Tab title -->
+  <title>My Image Gallery</title>
+
+  <!-- Favicon (optional — put a small icon in your folder) -->
+  <link rel="icon" href="images/favicon.png" type="image/png" />
+
+  <!-- Google Font (modern clean font) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Your stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- ══════════════════════════════
+       HEADER
+  ══════════════════════════════ -->
+  <header>
+    <div class="header-inner">
+      <div class="header-badge">✦ Gallery</div>
+      <h1>My Image Gallery</h1>
+      <p class="header-sub">A beautiful collection of moments</p>
+    </div>
+  </header>
+
+  <!-- ══════════════════════════════
+       FILTER BUTTONS
+  ══════════════════════════════ -->
+  <div class="filter-wrap">
+    <div class="filters" role="group" aria-label="Filter by category">
+      <button class="filter-btn active" data-cat="all">All</button>
+      <button class="filter-btn" data-cat="nature">🌿 Nature</button>
+      <button class="filter-btn" data-cat="architecture">🏛 Architecture</button>
+      <button class="filter-btn" data-cat="animals">🦊 Animals</button>
+      <button class="filter-btn" data-cat="abstract">🎨 Abstract</button>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════
+       GALLERY GRID
+  ══════════════════════════════ -->
+  <main>
+
+    <!-- Image count info -->
+    <div class="gallery-info">
+      <span id="gallery-count"></span>
+    </div>
+
+    <!-- Grid (filled by JavaScript) -->
+    <div class="gallery-grid" id="gallery" role="list"></div>
+
+    <!-- Empty state (shown when no images match filter) -->
+    <div class="empty-msg" id="empty-msg">
+      <p>😔 No images found in this category.</p>
+      <button class="filter-btn active" onclick="resetFilter()">Show All</button>
+    </div>
+
+  </main>
+
+  <!-- ══════════════════════════════
+       LIGHTBOX
+  ══════════════════════════════ -->
+  <div
+    class="lightbox"
+    id="lightbox"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Image viewer"
+  >
+    <!-- Dark background (click to close) -->
+    <div class="lightbox-bg" id="lb-bg"></div>
+
+    <!-- Close button -->
+    <button id="lb-close" aria-label="Close image viewer">&#10005;</button>
+
+    <!-- Previous button -->
+    <button class="lb-arrow lb-prev" id="lb-prev" aria-label="Previous image">
+      &#8592;
+    </button>
+
+    <!-- Image + info -->
+    <div class="lb-content">
+      <div class="lb-img-wrap">
+        <img id="lb-img" src="" alt="" />
+      </div>
+      <div class="lb-info">
+        <span id="lb-cat-badge" class="lb-cat-badge"></span>
+        <p id="lb-caption"></p>
+        <p id="lb-counter"></p>
+      </div>
+    </div>
+
+    <!-- Next button -->
+    <button class="lb-arrow lb-next" id="lb-next" aria-label="Next image">
+      &#8594;
+    </button>
+
+  </div>
+
+  <!-- ══════════════════════════════
+       FOOTER
+  ══════════════════════════════ -->
+  <footer>
+    <p>Made with ❤️ — My Image Gallery</p>
+  </footer>
+
+  <!-- ══════════════════════════════
+       JAVASCRIPT
+  ══════════════════════════════ -->
+  <script src="script.js"></script>
+
+</body>
+</html>
